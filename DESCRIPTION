@@ -1,0 +1,9 @@
+Package: PlantMorph
+Type: Package
+Title: An R Package For Morphometric Analysis Of Plant Taxa
+Version: 1.0
+Date: 2016-01-03
+Author: Brian J. Knaus
+Maintainer: Brian J. Knaus <briank.lists@gmail.com>
+Description: An R Package For Morphometric Analysis Of Plant Taxa
+License: GPL (>= 2)
