@@ -14,5 +14,7 @@ Plot attitude of structures
 }
 \seealso{
 aplpack::faces
+stats::density
+graphics::polygon
 }
 
