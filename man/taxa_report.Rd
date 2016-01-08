@@ -4,7 +4,7 @@
 \alias{taxa_report}
 \title{taxa_report}
 \usage{
-taxa_report(chars, taxa, file = "categorical_report.Rmd", meta = TRUE)
+taxa_report(chars, taxa, file = "taxa_report.Rmd", meta = TRUE)
 }
 \arguments{
 \item{chars}{a data.frame containing samples (rows) and characters (columns).}

@@ -24,7 +24,7 @@
 #' 
 taxa_report <- function( chars,
                          taxa,
-                         file = "categorical_report.Rmd",
+                         file = "taxa_report.Rmd",
                          meta = TRUE ){
   
   # Sanity checks
@@ -119,6 +119,17 @@ taxa_report <- function( chars,
     cat( 'p <- p + theme(axis.title.x = element_blank(), axis.text.x = element_text(angle = 45, hjust = 1))', file = file, sep='\n', append = TRUE)
     cat( paste('p <- p + ylab("', char_name, '")', sep=''), file = file, sep='\n', append = TRUE)
     cat( 'p', file = file, sep='\n', append = TRUE)
+    
+    # Missingness table
+    cat( 'miss <- as.data.frame(table(x$taxa))' , file = file, sep='\n', append = TRUE)
+    cat( 'miss$miss <- NA' , file = file, sep='\n', append = TRUE)
+    cat( 'for(i in 1:nrow(miss)){' , file = file, sep='\n', append = TRUE)
+    cat( '  tmp <- x[x[,1] == miss[i,1],]' , file = file, sep='\n', append = TRUE)
+    cat( '  miss[i,3] <- sum(is.na(tmp[,2]))' , file = file, sep='\n', append = TRUE)
+    cat( '}' , file = file, sep='\n', append = TRUE)
+    cat( 'colnames(miss) <- c("Taxon","Count","NAs")' , file = file, sep='\n', append = TRUE)
+    cat( 'knitr::kable(miss)' , file = file, sep='\n', append = TRUE)
+    
     
     cat('```' , file = file, sep='\n', append = TRUE)
     
