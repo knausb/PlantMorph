@@ -15,19 +15,22 @@
 #' 
 #' 
 cleanDF <- function(df){
+  
+  # Clean colnames.
   if( !is.null( colnames(df) ) ){
     x <- colnames(df)
-    x <- gsub("^\\s{1,}" , "" , x, perl=T)
-    x <- gsub( "\\s{1,}$", "" , x, perl=T)
-    x <- gsub( "\\s{2,}" , " ", x, perl=T)
+    x <- gsub("^\\s{1,}" , "" , x)
+    x <- gsub( "\\s{1,}$", "" , x)
+    x <- gsub( "\\s{2,}" , " ", x)
     colnames(df) <- x
   }
   
+  # Clean rownames.
   if( !is.null( rownames(df) ) ){
     x <- rownames(df)
-    x <- gsub("^\\s{1,}" , "" , x, perl=T)
-    x <- gsub( "\\s{1,}$", "" , x, perl=T)
-    x <- gsub( "\\s{2,}" , " ", x, perl=T)
+    x <- gsub("^\\s{1,}" , "" , x)
+    x <- gsub( "\\s{1,}$", "" , x)
+    x <- gsub( "\\s{2,}" , " ", x)
     
     if( length(unique(x)) != nrow(df) ){
       x <- paste(x, 1:length(x), collapse="_")
@@ -36,6 +39,7 @@ cleanDF <- function(df){
     rownames(df) <- x
   }
   
+  # Function to clean column values.
   clean_col <- function(x){
     if( class(x) == "factor" ){
       FACTOR <- TRUE
@@ -43,15 +47,17 @@ cleanDF <- function(df){
     } else {
       FACTOR <- FALSE
     }
-    x <- gsub("^\\s{1,}" , "" , x, perl=T)
-    x <- gsub( "\\s{1,}$", "" , x, perl=T)
-    x <- gsub( "\\s{2,}" , " ", x, perl=T)
+    x <- gsub("^\\s{1,}" , "" , x)    
+    x <- gsub( "\\s{1,}$", "" , x)
+    x <- gsub( "\\s{2,}" , " ", x)
     if( FACTOR == TRUE ){
       x <- as.factor(x)
     }
+    return(x)
   }
   
-#  df <- apply(df, MARGIN = 2, clean_col )
+#
+  df <- apply(df, MARGIN = 2, clean_col )
   
   return(df)
 }
