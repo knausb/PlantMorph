@@ -40,6 +40,8 @@ cleanDF <- function(df){
     if( class(x) == "factor" ){
       FACTOR <- TRUE
       x <- as.character(x)
+    } else {
+      FACTOR <- FALSE
     }
     x <- gsub("^\\s{1,}" , "" , x, perl=T)
     x <- gsub( "\\s{1,}$", "" , x, perl=T)
@@ -49,7 +51,7 @@ cleanDF <- function(df){
     }
   }
   
-  df <- apply(df, MARGIN = 2, clean_col )
+#  df <- apply(df, MARGIN = 2, clean_col )
   
   return(df)
 }
