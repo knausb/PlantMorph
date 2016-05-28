@@ -37,7 +37,7 @@ normalDF <- function(df){
 #    if( class(x) == "character" ){
 #      x <- as.numeric(x)
 #    }
-    x <- shapiro.test(x)
+    x <- stats::shapiro.test(x)
     report[i,4] <- x$statistic
     report[i,5] <- x$p.value
   }

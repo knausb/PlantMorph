@@ -21,6 +21,7 @@
 #' colnames(iris)[5] <- "taxa"
 #' taxa_report( chars = iris[,-5], taxa = iris[ ,5, drop=FALSE] )
 #' 
+#' @export
 #' 
 taxa_report <- function( chars,
                          taxa,

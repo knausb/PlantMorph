@@ -21,11 +21,11 @@ leaf <- function(){
   colnames(leaf) <- c("x", "y")
   leaf[,'y'] <- c(-2:2,2:-2)
   
-  leaf[,'x'] <- dnorm( x=leaf[,'y'], mean = 0, sd = 1 )
+  leaf[,'x'] <- stats::dnorm( x=leaf[,'y'], mean = 0, sd = 1 )
   leaf[6:10,'x'] <- -1 *   leaf[6:10,'x']
   
-  plot( leaf[,"x"], leaf[,"y"], type="n", xlim=c(-1,1), ylim=c(-2,2))
-  polygon( x = leaf[,"x"], y = leaf[,"y"], col="forestgreen")
+  graphics::plot( leaf[,"x"], leaf[,"y"], type="n", xlim=c(-1,1), ylim=c(-2,2))
+  graphics::polygon( x = leaf[,"x"], y = leaf[,"y"], col="forestgreen")
 }
 
 

@@ -18,6 +18,7 @@
 #' data("iris")
 #' character_report( iris[,-5] )
 #' 
+#' @export
 #' 
 character_report <- function( chars ,
                               file = "character_report.Rmd",

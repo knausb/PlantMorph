@@ -19,16 +19,17 @@
 #' @examples
 #' colorPCA( cols = colors()[as.integer(seq(1,657,length.out = 100))] )
 #'
+#' @export
 #'
 colorPCA <- function( cols = NULL ){
   if( is.null(cols) ){
-    cols <- colors()
+    cols <- grDevices::colors()
   }
-  x <- col2rgb( cols )
+  x <- grDevices::col2rgb( cols )
   colnames(x) <- cols
-  x2 <- princomp(t(x))
+  x2 <- stats::princomp(t(x))
   
-  plot(x2$scores[,1:2], pch=20, col=colnames(x))
+  graphics::plot(x2$scores[,1:2], pch=20, col=colnames(x))
   
   return(x2)
 }
