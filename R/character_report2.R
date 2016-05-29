@@ -14,7 +14,7 @@
 #' 
 #' 
 #' @examples 
-#' myData <- matrix(1:8, ncol=4, nrow=8)
+#' myData <- data.frame(matrix(1:8, ncol=4, nrow=8))
 #' colnames(myData) <- paste('char', 1:ncol(myData), sep="_")
 #' rownames(myData) <- paste('sample', 1:nrow(myData), sep="_")
 #' myData[,2] <- as.character(myData[,2])
@@ -22,10 +22,8 @@
 #' myData[,4] <- factor(myData[,4], ordered = TRUE)
 #' 
 #' \dontrun{
-#' 
+#' character_report2(myData)
 #' }
-# data("iris")
-# character_report( iris[,-5] )
 #' 
 #' @export
 #' 
