@@ -3,5 +3,7 @@
 export(attitude)
 export(character_report)
 export(character_report2)
+export(cleanDF)
 export(colorPCA)
+export(set_na)
 export(taxa_report)

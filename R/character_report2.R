@@ -13,7 +13,7 @@
 #' Prepare an RMarkdown report for characters.
 #' 
 #' 
-#' @examples 
+#' @examples
 #' myData <- data.frame(matrix(ncol=4, nrow=12))
 #' colnames(myData) <- paste('char', 1:ncol(myData), sep="_")
 #' rownames(myData) <- paste('sample', 1:nrow(myData), sep="_")
