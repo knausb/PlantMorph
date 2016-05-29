@@ -16,12 +16,15 @@ Create a RMarkdown report about character classes and distribution
 Prepare an RMarkdown report for characters.
 }
 \examples{
-myData <- data.frame(matrix(1:8, ncol=4, nrow=8))
+myData <- data.frame(matrix(ncol=4, nrow=12))
 colnames(myData) <- paste('char', 1:ncol(myData), sep="_")
 rownames(myData) <- paste('sample', 1:nrow(myData), sep="_")
-myData[,2] <- as.character(myData[,2])
-myData[,3] <- as.factor(myData[,3])
-myData[,4] <- factor(myData[,4], ordered = TRUE)
+set.seed(9)
+myData[,1] <- abs(round(rnorm(nrow(myData), mean = 5, sd =2)))
+myData[,2] <- letters[myData[,1]]
+myData[,3] <- as.factor(myData[,2])
+myData[,4] <- factor(myData[,2], ordered = TRUE)
+myData[3,2] <- "?" # Add an nexpected value
 
 \dontrun{
 character_report2(myData)
