@@ -13,6 +13,7 @@
 #' Removes leading and trailing whitespace from row and column names.
 #' Replaces consecutive spaces of length greater than one with a single space.
 #' 
+#' @export
 #' 
 cleanDF <- function(df){
   
